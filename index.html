@@ -1,92 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 	<head>
-		<title>Jessica Ly</title>
 		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Computer Science and CCIT student at the University of Toronto, Mississauga campus."/>
 		<meta name="keywords" content="Jessica Ly, Jessica, Ly, jessly"/>
 		<meta name="author" content="Jessica Ly">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="icon" href="logo.png">
+        <title>Jessica Ly</title>
 
 		<style>
-			body {
+            nav {
+                padding: 1em;
+                position: fixed;
+                width: 100%;
+                text-align: center;
+                border-bottom: 5px solid #F7F9F9;
+                z-index: 9999;
+            }
+            nav a {
+                color: white;
+                padding: 1em;
+            }
+            nav > a:link {
+                text-decoration: none;
+                color: white;
+            }
+            nav > a:hover {
+                text-decoration: underline;
+            }
+
+            nav > a:active {
+                text-decoration: underline;
+            }
+            body {
 				background: #F7F9F9;
                 font-family: 'Montserrat', sans-serif;
                 padding: 0px;
                 margin: 0px;
                 font-size: 1.2em;
 			}
-            nav {
-                background: #B04D4D;
-                padding: 1em;
-                position: fixed;
-                width: 100%;
-                text-align: center;
-            }
-            nav a {
-                color: white;
-                padding: 1em;
-            }
             div {
                 padding: 3%;
-                padding-top: 3.5em;
-                padding-bottom: 3.5em;
+                padding-top: 2.5em;
+                padding-bottom: 2.5em;
             }
-            a:link {
-                text-decoration: none;
+            h1 {
+                font-size: 3em;
+                margin: 0.4em 0.4em 0 0.4em;
             }
-
-            a:visited {
-                text-decoration: none;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-
-            a:active {
-                text-decoration: underline;
+            h2 {
+                font-size: 2em;
             }
             footer {
                 text-align: center;
                 margin: 15px;
             }
+            a:hover {
+              font-weight: bolder;
+            }
+            strong {
+                color: #AA00FF;
+            }
+            .card {
+                padding: 3%;
+                padding-top: 2.5em;
+                padding-bottom: 2.5em;
+                margin: 2em;
+                line-height: 2;
+            }
+            .item {
+                border-radius: 25px;
+                background: #AA00FF;
+                color: white;
+                padding: 0.7em;
+                margin: 0.5em;
+            }
+            .flex-container {
+                display: flex;
+                flex-flow: row wrap;
+            }
+            .gradient-1{
+                background: hsla(214, 86%, 50%, 1);
+                background: linear-gradient(0deg, hsla(214, 86%, 50%, 1) 0%, hsla(249, 90%, 60%, 1) 37%, hsla(280, 100%, 50%, 1) 100%);
+                background: -moz-linear-gradient(0deg, hsla(214, 86%, 50%, 1) 0%, hsla(249, 90%, 60%, 1) 37%, hsla(280, 100%, 50%, 1) 100%);
+                background: -webkit-linear-gradient(0deg, hsla(214, 86%, 50%, 1) 0%, hsla(249, 90%, 60%, 1) 37%, hsla(280, 100%, 50%, 1) 100%);
+                filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1271EC", endColorstr="#583DF5", GradientType=1 );
+            }
             #greeting {
                 font-size: 1.7em;
                 text-align: center;
                 color: white;
-                background: #FA7861;
-                color: white;
-                padding-top: 3.5em;
+                padding: 3.5em 0 0 0;
+            }
+            #greetings-curve {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            #greetings-curve path {
+                fill: #F7F9F9;
             }
             #intro {
                 font-size: 1.5em;
                 text-align: center;
-                color: #B04D4D;
-            }
-            #education {
-                border-top: 5px dashed #4DA9E3;
-            }
-            #work {
-                border-top: 5px dashed #4DA9E3;
-            }
-            #volunteer {
-                border-top: 5px dashed #4DA9E3;
-            }
-            #projects {
-                border-top: 5px dashed #4DA9E3;
-            }
-            #skills {
-                border-top: 5px dashed #4DA9E3;
+                color: #1271EC;
+                padding-top: 2.5em;
             }
 		</style>
 	</head>
 
 	<body>
         <!-- NAVIGATION -->
-        <nav>
+        <nav class="gradient-1">
             <a href="#intro">About</a>
             <a href="#education">Education</a>
             <a href="#work">Experience</a>
@@ -95,33 +123,38 @@
         </nav>
         
         <!-- GREETING -->
-        <div id="greeting">
-            <h1>Hello, I'm Jessica :)</h1>
+        <div id="greeting" class="gradient-1">
+            <h1>Hello, I'm Jessica</h1>
         </div>
+        
+        <section>
+            <svg id="greetings-curve" class="gradient-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path d="M0,160L40,154.7C80,149,160,139,240,154.7C320,171,400,213,480,213.3C560,213,640,171,720,170.7C800,171,880,213,960,208C1040,203,1120,149,1200,144C1280,139,1360,181,1400,202.7L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+            </svg>
+        </section>
         
         <!-- INTRO -->
         <div id="intro">
-            <p>I'm an upcoming <strong>2021</strong> graduate interested in <strong>web development, web design, HCI, and UX.</strong></p>
-            <p>Through my education, I was able to collaborate in group projects, lead as an executive of an academic society, obtain work study jobs, and secure a one year internship. These experiences have allowed me to develop technical, analytical and design skills.</p>
+            <p>I'm an upcoming <strong>2021</strong> graduate interested in <strong>web development, web design, software engineering, and UX.</strong></p>
+            <p>Through my education, I was able to collaborate in group projects, lead as an executive of an academic society, obtain work study jobs, and secure a one year internship. These experiences have allowed me to develop technical, analytical, and design skills.</p>
             <p></p>
             
-            <p>Contact me at <a href="https://www.linkedin.com/in/jessly/">LinkedIn</a> and find me at <a href="https://github.com/jessly5">GitHub</a></p>
+            <p>Contact me at <a href="https://www.linkedin.com/in/jessly/">LinkedIn</a> and find me at <a href="https://github.com/jessly5">GitHub</a>!</p>
         </div>
         
         <!-- EDUCATION -->
-        <div id="education">
+        <div id="education" class="card">
                 <h2>Education 🎓</h2>
                 <ul>
                     <li>HBSc 2016-2021 @UofT, Mississauga</li>
                         <ul>
                         <li>Double major in Computer Science and CCIT</li>
-                        <li>(CCIT stands for Communication, Culture, Information & Technology but the tldr is communication media)</li>
+                        <li>(CCIT stands for Communication, Culture, Information and Technology but the tldr is communication media)</li>
                     </ul>
                 </ul>
         </div>
 
         <!--WORK EXPERIENCE-->
-        <div id="work">
+        <div id="work" class="card">
             <h2>Work Experience 💻</h2>
             <ul>
                 <li>Web Developer @ UofT Entrepreneurship Hatchery, May - August 2020</li>
@@ -131,7 +164,7 @@
         </div>
         
         <!--VOLUNTEER EXPERIENCE-->
-		<div id="volunteer">
+		<div id="volunteer" class="card">
             <h2>Volunteer Experience 🙌</h2>
             <ul>
                 <li>Director of Marketing @ UTM MCSS, May 2018 - August 2019</li>
@@ -140,10 +173,10 @@
         </div>
         
         <!-- PROJECTS -->
-        <div id="projects">
-            <h2>Projects 🧪</h2>
+        <div id="projects" class="card">
+            <h2>Projects 🌱</h2>
             <ul>
-                <li>Shooter Game</li>
+                <li class>Shooter Game</li>
                     <ul>
                         <li>Shooting game</li>
                         <li>React, JavaScript, AJAX, JSON, JQUERY, Node, REST API, Sqlte3</li>
@@ -176,18 +209,29 @@
         </div>
 
         <!-- SKILLS -->
-        <div id="skills">
-            <h2>Skills 🧰</h2>
-            <ul>
-                <li>Python, Java, JavaScript, C, C#</li>
-                <li>Vue, React, Bootstrap, HTML, CSS, SQL</li>
-                <li>OOP, Git version control, Scrum</li>
-                <li>Wireframing, UML</li>
-            </ul>
+        <div id="skills" class="card">
+            <h2>Skills 🛠️</h2>
+            <div class="flex-container">
+                <span class="item">Python</span>
+                <span class="item">JavaScript</span>
+                <span class="item">Java</span>
+                <span class="item">C</span>
+                <span class="item">C#</span>
+                <span class="item">Vue</span>
+                <span class="item">React</span>
+                <span class="item">Bootstrap</span>
+                <span class="item">HTML</span>
+                <span class="item">CSS</span>
+                <span class="item">SQL</span>
+                <span class="item">Git</span>
+                <span class="item">Scrum</span>
+                <span class="item">OOP</span>
+                <span class="item">Wireframing</span>
+            </div>
         </div>
 
         <footer>
-		Last modified: August 6, 2020
+            Last modified: August 6, 2020
 		</footer>
 	</body>
 	
