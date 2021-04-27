@@ -22,7 +22,6 @@
 	<style>
 	body {
 		font-family: 'Open Sans', serif;
-		margin: 0px 50px 50px 50px;
 		color: #424242;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
@@ -41,11 +40,13 @@
 	}
 	#vertical-nav ul {
 		list-style-type: none;
+		padding: 0px;
 	}
 	#vertical-nav {
-		width: 250px;
+		width: 100px;
 		margin-top: 50px;
 		position: fixed;
+		margin-left: 8%;
 	}
 	#vertical-nav a {
 		padding: 12px;
@@ -59,6 +60,12 @@
 	a {
 		color: #CA4C4C;
 	}
+	#main {
+		margin-right: 8%;
+	}
+	#logo {
+		width: 100px;
+	}
 	</style>
 </head>
 
@@ -67,12 +74,13 @@
 	
 	<!--NAVIGATION-->
 	<nav id="vertical-nav">
+		<img src="logo.svg" id="logo">
 		<ul>
 			<li><a href="#main">About</a></li>
-			<li><a href="#work">Work Experience</a></li>
+			<li><a href="#work">Work</a></li>
 			<li><a href="#education">Education</a></li>
 			<li><a href="#projects">Projects</a></li>
-			<li><a href="#volunteer">Volunteer Experience</a></li>
+			<li><a href="#volunteer">Clubs</a></li>
 			<li><a href="#courses">Courses</a></li>
 		</ul>
 	</nav>
@@ -182,7 +190,7 @@
 	
 	<!--VOLUNTEER EXPERIENCE-->
 	<section id="volunteer">
-		<h2>Volunteer Experience 🙌</h2>
+		<h2>Club Experience 🙌</h2>
 		<div>
 			<p><strong>Director of Marketing</strong><br>
 			 @ UTM Mathematical and Computational Sciences Society, May 2018 – Aug 2019</p>
