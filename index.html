@@ -24,7 +24,7 @@
 		font-family: 'Open Sans', serif;
 		color: #424242;
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 4fr;
 		margin: 0 10% 50px 10%;
 	}
 	h1, h2 {
@@ -55,25 +55,40 @@
 		color: #CA4C4C;
 	}
 	#vertical-nav a:hover {
-		background: #FFF5D6;
+		font-weight: 900;
 	}
 	a {
 		color: #CA4C4C;
 	}
+	a:hover {
+		font-weight: 900;
+	}
 	#logo {
 		width: 100px;
+	}
+	.active {
+		background: #FFF5D6;
+	}
+	#course-search {
+		width: 300px;
+		font-size: 1em;
+		padding: 10px;
+		border: 1px solid #ddd;
+		margin-bottom: 1em;
+	}
+	#about {
+		padding-top: 1px;
 	}
 	</style>
 </head>
 
 <body>
 	<div>
-	
 	<!--NAVIGATION-->
 	<nav id="vertical-nav">
-		<img src="logo.svg" id="logo">
+		<img src="logo.svg" id="logo" alt="logo">
 		<ul>
-			<li><a href="#main">About</a></li>
+			<li><a href="#about" class="active">About</a></li>
 			<li><a href="#work">Work</a></li>
 			<li><a href="#education">Education</a></li>
 			<li><a href="#projects">Projects</a></li>
@@ -83,13 +98,13 @@
 	</nav>
 	</div>
 	
-	<div id="main">
+	<div>
 	
 	<!--ABOUT-->
 	<section id="about">
 		<h1>Hello, I'm Jessica Ly</h1>
 		<p><em>Define. Design. Develop.</em><br><br>
-		I'm a 2021 graduate experienced in <strong>web development, web design, software engineering, and UX</strong>. My interdisciplinary education allows me to have technical, analytical, and design skills.<br><br>
+		I am a 2021 graduate experienced in <strong>web development, web design, software engineering, and UX</strong>. My interdisciplinary education allows me to have technical, analytical, and design skills.<br><br>
 		Computer Science allows me to view programs from a technical standpoint (develop), while CCIT (Communication, Culture, Information and Technology) enables me to discover the impact these programs have on its users through research, data informed decisions, and theoretical frameworks (define and design).<br><br>
 		Contact me at <a href="https://www.linkedin.com/in/jessly/">LinkedIn</a>
 		and find me at <a href="https://github.com/jessly5">GitHub</a>!
@@ -173,15 +188,23 @@
 		<h2>Projects 🌱</h2>
 		<div>
 			<p><strong>Shooting Game</strong><br>
-			 using React, JavaScript, AJAX, JSON, JQUERY, Node, REST API, Sqlite3. Course project in a group of 2 where players shoot multiple moving robot oponents in a bird's eye view map.</p>
+			 using React, JavaScript, AJAX, JSON, JQUERY, Node, REST API, Sqlite3. Course project in a group of 2 where players shoot multiple moving robot opponents in a bird's eye view map.</p>
 		</div>
 		<div>
-			<p><strong>Course sorter</strong><br>
-			 using Vue, Python, Beautiful Soup, JSON. Personal project that sorts through a list of locally stored courses.</p>
+			<p><strong>Course Sorter</strong><br>
+			 using Vue, Python, Beautiful Soup, JSON. Personal project that sorts through a list of locally stored courses including topic tags.</p>
+		</div>
+		<div>
+			<p><strong>UofTea Course Review</strong><br>
+			 using SemanticUI, TypeScript, and Redux for front-end. Course capstone project in a group of 5. Helped develop and design the site through methods such as user testing and personas.</p>
+		</div>
+		<div>
+			<p><strong>Zoom Improvements</strong><br>
+			 using qualitative research methods such as contextual inquiry, participatory design, focus group, work models, and thematic analysis. Suggested key design recommendations to reflect student needs in an online learning environment.</p>
 		</div>
 		<div>
 			<p><strong>Shopping Cart UI/UX </strong><br>
-			 using AdobeXD. Course project in a group of 3. Interface prototype involving primary research (data collection and analysis), following iteraction design principles, multiple user testing sessions, test session data analysis, and iterative development of low, medium, and high fidelity prototypes</p>
+			 using AdobeXD. Course project in a group of 3. Interface prototype involving primary research (data collection and analysis), following interaction design principles, multiple user testing sessions, test session data analysis, and iterative development of low, medium, and high fidelity prototypes.</p>
 		</div>
 	</section>
 	
@@ -225,7 +248,9 @@
 	<!--COURSES-->
 	<section id="courses">
 		<h2> Every Single Course I Have Passed 📚</h2>
-		<ul>
+		<input type="text" id="course-search" onkeyup="courseSearch()" placeholder="Search for course..." title="Type in course">
+
+		<ul id="course-list">
 			<li>CSC428H1 - Human-Computer Interaction</li>
 			<li>CSC490H5 - Capstone Design Course (Topic: Focus on Design)</li>
 			<li>CSC358H5 - Principles of Computer Networks</li>
@@ -241,9 +266,7 @@
 			<li>CSC236H5 - Introduction to the Theory of Computation</li>
 			<li>CSC148H5 - Introduction to Computer Science</li>
 			<li>CSC108H5 - Introduction to Computer Programming</li>
-		</ul>
-		
-		<ul>
+			<br>
 			<li>CCT432H5 - Ethics and Code</li>
 			<li>CCT434H5 - Design Thinking II</li>
 			<li>CCT485H5 - User Experience Design-UXD</li>
@@ -262,9 +285,7 @@
 			<li>CCT202H5 - Human-Machine Communication</li>
 			<li>CCT110H5 - Rhetoric and Media</li>
 			<li>CCT109H5 - Contemporary Communication Technologies</li>
-		</ul>
-		
-		<ul>
+			<br>
 			<li>STA256H5 - Probability and Statistics I</li>
 			<li>MAT223H5 - Linear Algebra I</li>
 			<li>MAT232H5 - Calculus of Several Variables</li>
@@ -279,6 +300,67 @@
 	</section>
 	
 	</div>
+	
+	<script>
+	// Add active class to the current nav
+	var nav = document.getElementById("vertical-nav");
+	var btns = nav.getElementsByTagName("a");
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener("click", function() {
+			var current = document.getElementsByClassName("active");
+			current[0].className = current[0].className.replace("active", "");
+			this.className += "active";
+		});
+	}
+	
+	// Filter courses with search
+	function courseSearch() {
+		var input, filter, ul, li, a, i;
+		input = document.getElementById("course-search");
+		filter = input.value.toUpperCase();
+		ul = document.getElementById("course-list");
+		li = ul.getElementsByTagName("li");
+		console.log(li);
+		
+		for (i=0; i < li.length; i++) {
+			if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+				li[i].style.display = "";
+			} else {
+				li[i].style.display = "none"
+			}
+		}
+	}
+	
+	// Update active nav during scroll
+	(function() {
+	var nav = document.getElementById("vertical-nav");
+	var btns = nav.getElementsByTagName("a");
+	var section = document.querySelectorAll("section");
+	var sections = {};
+	var i = 0;
+	
+	Array.prototype.forEach.call(section, function(e) {
+		sections[e.id] = e.offsetTop;
+	});
+	
+	window.onscroll = function() {
+		var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+		for (s in sections) {
+			if (sections[s] <= scrollPosition) {
+				document.querySelector('.active').setAttribute('class', ' ');
+				for (var i = 0; i < btns.length; i++) {
+					name = btns[i].getAttribute("href");
+					if (name.indexOf(s) > -1) {
+						btns[i].className = 'active';
+					}
+				}
+			}
+		}
+	};
+	})();
+	 
+	</script>
+
 </body>
 
 </html>
